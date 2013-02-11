@@ -1,0 +1,14 @@
+# Les ligne commençant par '#' sont des commentaires.
+!musique
+musique/*
+
+!video
+video/*
+
+!cover
+cover/*
+
+!texte
+texte/*
+
+icones/Thumbs.db

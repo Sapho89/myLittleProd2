@@ -1,0 +1,559 @@
+	
+
+/*STRUCTURE DE HTML [Body,Footer] */
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #300922;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: 200;
+	color:#FFFFFF;
+}
+
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	color: #221D1D;
+}
+
+
+h2 {
+	font-size: 2.5em;
+}
+
+p, ol, ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 200%;
+}
+
+strong {
+}
+
+a {
+	color: #BA0E8C;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+#header {
+        width: 100%;
+		margin-top:0;
+		background-color:black;
+		height:40px;
+		border-radius: 5px 10px 0 5px;
+}
+
+
+
+
+/* BLOCS COMMUNS*/
+/* menu */
+
+#logo {
+height:30px;
+margin-top:5px;
+
+}
+
+#menu {
+	height:30px;
+	float:left;  	
+}
+
+#menu ul {
+	margin-top: 0;
+	padding: 0;
+	list-style: none;
+	line-height: normal;
+    color: #FFFFFF;
+}
+
+#menu li{
+	display: inline;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.selected {
+	color:red;
+}
+
+
+#right-content{
+	float:right;
+	width:15%;
+	margin: 0 5px 0 0;
+	position:relative;
+	height:90%;	
+
+
+}
+
+#left-content {
+	float:left;
+	width:15%;
+	margin:0;
+	position:relative;
+	height:90%;
+	text-align:left;
+}
+
+#description {
+
+margin-left: 5px;
+}
+
+#affiche {
+
+width:500px;
+height:120px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+text-align:justify;
+margin: 2px auto 20px auto; 
+padding: 15px 15px 15px 15px;
+font-family:Helvetica;
+line-height: 30px;
+
+}
+
+
+/* BLOCS COMMUNS SPECIAUX */
+/*
+/*Commentaires*/
+#derniers-comm {
+	float:left;
+	width:93.5%;
+	margin: 50px auto;
+	position:relative;
+	height:300px;
+	border-radius: 3px 3px 3px 3px;
+	border: 5px dotted #969696 ;
+
+}
+
+/*Bloc Interaction*/
+#bloc_interaction{
+	background-color:#392A3B;
+	clear: both;
+	margin: 1px;
+	padding: 0;
+    padding-top: 25px;
+	overflow: hidden;
+
+}
+#bloc_interaction .post{
+	position:relative;
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-bottom:10px;
+	color: black;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	background-color: white;
+}
+
+#bloc_interaction #img_mini, #bloc_interaction #post_text{
+display: inline-block;}
+
+
+.pane .delete{ 
+cursor: pointer;
+}
+.pane .unapprove{
+cursor: pointer;
+margin-right:5px;
+}
+input[type="submit"]{
+position: relative;
+left: 20px;
+}
+#bloc_interaction .post_text{ color: black; padding-left: 10px; }
+#bloc_interaction .post span:nth-child(2){ margin-right:20px;} /*Soit Span de l'AUTEUR */
+#bloc_interaction .post span:nth-child(3){ color: gray;} /*Soit Span de l'HEURE DU TYPE */
+#bloc_interaction .post>#post_croix {position: absolute; top:10px; right: 10px;padding:1px;}
+#bloc_interaction .post>#post_croix_masque{position: absolute; top:10px; right: 30px;padding:1px;}
+#bloc_interaction h1{
+	margin-left: 5px;
+	padding-left: 20px;
+	padding-right: 5px;
+	margin-right:5px;
+	background-color: black;
+	color: white;
+}
+#bloc_interaction p, #bloc_interaction ul
+{
+    font-size: 1.2em;
+	color: black;
+}
+
+#comm
+{
+    display: inline-block;
+    vertical-align: top;
+	text-align: left;
+    width: 100%;
+}
+
+
+
+/* (Spécifique) INDEX.PHP */
+/* InscriptionUser2*/
+div.champs {
+padding-left:20px;
+padding-top:25px;
+float:left;
+}
+
+#connexionArt {
+	float:left;
+	width:15%;
+	margin: 100px auto;
+	background-color:#444145;
+	height:280px;
+	border-radius: 50px 140px 80px 110px;
+	text-align:left;
+	box-shadow: 10px 2px 10px black;
+}
+
+#deconnexion {
+float:right;
+margin: 15px 50px 0 0;
+}
+
+#bulle {
+margin-left:20px;
+}
+
+/* Lecteur MP3 */
+
+#EspaceSon {
+
+margin: 210px 2px 0 2px;
+}
+
+
+#lecteur {
+
+background-color:black;
+width: 100%;
+height:30px;
+border:none;
+}
+
+/* Images */
+
+img.miniature {
+width: 100px;
+height:140px;
+margin-left:10px
+}
+
+#img_texte{
+width: 200px;
+height:240px;
+}
+
+
+
+/* (Specifique) PROFIL TEXTE*/
+/*Titre*/
+#titre_profil_texte1{
+	font-size: 2em;
+	color: white;
+	background-color: #000;
+	z-index:2;
+	border: 3px solid #FFF;
+	margin: 0 50px 0 180px;
+	padding: 0 5px 0 5px;
+	text-align:center;
+	box-shadow: -6px 6px 6px black;
+}
+#titre_profil_texte2{
+	z-index:2;
+	font-size: 2em;
+	color: white;
+	background-color: #000;
+	text-align:center;
+	border: 3px solid #FFF;
+	margin: -6px 100px 0 230px;
+	padding: 0 5px 0 5px;
+	box-shadow: -6px 6px 6px black;
+}
+
+h1.soustitre {
+	margin-top:10px;
+	padding-right:0;
+	padding-left:20px;
+	font-size: 1.5em;
+	color: white;
+	background-color: #000;
+	text-align:center;
+}
+
+h1.rubrique {
+	margin-top:10px;
+	padding-right:0;
+	font-size: 0.9em;
+	color: white;
+	background-color: #000;
+	text-align:center;
+}
+
+
+/*Article*/
+aside{
+	float:left;
+	margin: 10px ;
+}
+#loupe{
+position: absolute;
+bottom:10px;
+left:10px;
+opacity: 0.8;
+}
+
+#resume{
+	width:640px; //Largeur de la vidéo
+	margin: auto; //Centré.
+	min-height: 10%;
+	height:10%;
+	margin-top: 20px;
+}
+
+/*Autres oeuvres en rapport avec oeuvre principal*/
+#selection_image {
+position: relative;
+width:150px;
+height:250px;
+}
+#selection_image .description {
+	position: absolute;
+	bottom:0px;
+	left:0px;
+	margin-left:10px;
+	margin-right:10px;
+	width: 150px;
+	color: white;
+	background-color:black;
+	opacity:0.8;
+}
+
+/* 
+	(Specifique) PROFIL MEMBRE/ARTISTE  
+*/
+/* Barre de Navigation */
+.active {
+	text-decoration: underline;
+}
+#nav_haut {
+	display:block;
+	/*position: relative;
+	top: 0px;
+	left: 2px;*/
+	height: 35px;
+	width: 93%;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 1.4em;
+	text-align:right;
+}
+#nav_haut ul {
+	height: 35px;
+	background-color: #333333;
+	list-style-type: none;	
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black;}	
+#nav_haut  li {
+	display: inline-block;
+	color: black;
+	margin-right: 15px;
+	}
+#nav_haut a
+{
+    color:white; 
+}
+
+.section_titre{
+	border-left: 1px black solid;
+	border-top: 1px black solid;
+	border-right: 1px black solid;
+	background-color: black;
+	color: white;
+	width:200px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 1.3em;
+}
+/*Fiche de l'artiste*/
+#fiche #avatar{
+	float:left;
+	margin-bottom:10px;
+}
+#fiche hr{
+	width : 20%;
+}
+#fiche table, tr,td {
+padding:0;margin:0;
+}
+
+/* (Specifique) VIDEO*/
+#main-content #player_a {
+	width: 640;
+	margin:auto;
+	margin-top: 20px;
+}
+
+#video_mini:hover{
+	text-decoration:none;
+	font-weight: none;
+	text-shadow: none;
+}
+
+/* Tableau page d'accueil */
+
+.colonne {
+    display:block;   
+}
+
+
+h1.titreColonne {
+  	margin-top:10px;
+	padding-right:0;
+	font-size: 0.9em;
+	color: white;
+	background-color: #000; 
+        width:110px;
+        text-align:center;
+        display:inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+        
+    
+}
+
+#tableau {
+    
+    margin: 20px auto 320px 125px;
+    height:600px;
+    width:500px;
+    
+}
+
+/*Notes*/
+ul.notes-echelle {
+                margin:0;
+                padding:0;
+                font:.75em/1.2 Arial, Helvetica, sans-serif;
+}
+ul.notes-echelle li {
+                float:left;
+                color: black;
+                margin:0;
+                padding:0;
+                list-style:none;
+                min-width:20px;
+                min-height:20px;
+}
+/* Correctif IE6 sur min-width & min-height */
+* html ul.notes-echelle.js li {
+                width:20px;
+                height:20px;
+}
+ul.notes-echelle li label {
+                display:block;
+                text-align:center;
+                margin:0;
+                padding:0;
+                line-height:20px;
+                background:url(icones/etoiles.gif) center top no-repeat;
+                cursor:pointer;
+                float:none;
+                width:20px;
+}
+ul.notes-echelle li.note-off label {
+                background-position:center -60px;
+}
+ul.notes-echelle.js input {
+position:absolute;
+left:-999%;
+}
+ 
+.note{                                                                          
+                background:url(icones/etoiles.gif) left top no-repeat;
+}
+ 
+ 
+.presentation {
+margin-top:-100px;
+margin-left:150px;
+height:100px;
+width:300px;
+
+} 
+ 
+
+/*BALISES*/						
+p, ul, ol {
+	margin-top: 0;
+	line-height: 180%;
+}
+
+a {
+	text-decoration: none;
+	color:#FFFFFF;
+	font-family: Tahoma, Helvetica, sans-serif;
+	position:relative;
+	display:inline;
+}
+
+a:hover{
+text-decoration:none;
+text-shadow: #C0C0C0 3px 2px 3px;
+}
+
+span {
+	color:#FFFFFF;
+}
+
+span a {
+	color: black;
+}
+
+
+label
+{
+	float:left;
+	display: block;
+	width: 150px;
+}
+
+th,td {
+padding-right:20px;
+padding-left:20px;
+}
+
+table {
+padding:5px;
+border:none;
+}
+:required
+{
+    background-color: red;
+} 
+ 

@@ -1,0 +1,456 @@
+/*STRUCTURE DE HTML [Body,Footer] */
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 200;
+	
+}
+
+
+h1 {
+	margin: 0;
+	padding-top: 50px;
+	font-weight: 600;
+	text-align: center;
+	font-size: 1.2em;
+	text-shadow: 0px 5px 10px #333333;
+}
+
+
+h2 {
+	font-size: 0.9em;
+	text-align: center;
+	text-decoration : underline;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight:600;
+}
+
+h4{
+	text-align: center;
+	font-size: 1em;
+	font-weight:300;
+}
+
+p, ol, ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 200%;
+}
+
+a{
+color: #000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+
+/** MENU */
+
+.menu {
+	width: 1000px;
+	height: 30px;
+	background:#333333;
+	font-size: 20px;
+	padding-right:20px;
+	padding-left:20px;
+	margin-right: auto;
+	margin-left: auto;
+	box-shadow: 5px 5px 10px black;
+}
+
+.menu ul {
+
+	list-style: none;
+	line-height: normal;
+	text-align: left;
+}
+
+.menu li {
+	display: inline-block;
+
+}
+
+.menu a {
+	display: block;
+	padding: 2px 10px 2px 10px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 200;
+	color: #BC8F8F;
+	border: none;
+
+}
+
+  li.niveau1:hover {
+	background: #BC8F8F;
+}
+
+.niveau1 a:hover {
+color:#333333;
+}
+
+
+/* Moteur de recherche multicriteres */
+
+
+.niveau2 {
+	padding : 10px;
+	width: 300px;
+	background:#333333;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 200;
+	color: #BC8F8F;
+	border: none;
+	display: none;
+	position: absolute;
+}
+
+
+label
+{
+	float:left;
+	display: block;
+	width: 100px;
+}
+
+/* Accueil*/
+
+.main-content{
+	width: 1000px;
+	/*padding: 0px 0px 0px 0px;*/
+	background: #BC8F8F;
+	margin-right: auto;
+	margin-left: auto;
+	box-shadow: 0px 5px 10px #333333; 
+}
+
+/* Bloc de droite */
+
+.contenu_droite {
+
+width: 200px;
+float:left;
+height: 100%;
+}
+
+.affiche {
+
+margin: 50px 0 0 20px;
+width:150px;
+height:200px;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+}
+
+
+.top-artiste{
+
+margin: 50px 0 0 20px;
+width:150px;
+height:auto;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+overflow : hidden;
+}
+
+/* Bloc central */
+
+.contenu_central {
+	margin-right: 180px;
+	margin-left: 250px;
+	width:510px;
+	height: 100%;
+}
+
+
+
+#tableau {
+    
+	margin-top: 50px;	
+	background-color:#333333;
+	box-shadow: 5px 5px 10px black;
+    height:400px;
+    width:350px;
+	float:left;
+    color: #BC8F8F;
+}
+
+.colonne {
+    display:block;   
+}
+
+
+
+img.miniature {
+width: 100px;
+height:120px;
+padding-right: 10px;
+padding-left:10px;
+}
+
+/* Bloc de gauche */ 
+
+	/*  Espace connexion */
+	
+.connexionArt {
+	float:right;
+	width:170px;
+	margin: 50px 20px 20px 0px;
+	height:220px;
+	border-radius: 50px 140px 100px 110px;
+	box-shadow: 0px 0px 10px 5px  #000000;
+	text-align:left;
+	background:#333333;
+	color: #BC8F8F;
+}	
+	
+#bulle a {
+	color: #BC8F8F;
+}	
+	
+#bulle {
+margin-left:20px;
+margin-top:50px;
+}	
+
+.log {
+padding-top: 100px;
+font-weight: bold;
+}
+
+/* Globales à ttes les catégories */
+
+
+.img_texte{
+width: 200px;
+height:240px;
+margin-left : 150px;
+}
+
+.presentation {
+
+margin: 50px 0 0 20px;
+width:180px;
+/*height:500px; */
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+
+}
+
+.presentation2 {
+
+/*margin: 50px 0 0 20px;
+width:150px;
+height:500px; */
+padding: 15px; 
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+
+}
+
+.meme_auteur {
+
+margin: 50px 0 0 20px;
+width:150px;
+height:auto;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+margin-right : auto;
+overflow : hidden;
+
+}
+
+.meme_auteur img {
+margin: auto;
+width: 100px;
+height:100px;
+padding-right: 25px;
+padding-left: 25px;
+}
+
+.mini {
+width: 150px;
+height:180px;
+margin : auto;
+}
+
+.autres_oeuvres  {
+
+margin-top: 20px;
+/*margin-right:auto;
+margin-left: auto; */
+width:100%;
+/*height:180px; */
+padding: 10px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+
+}
+
+#loupe{
+position: absolute;
+z-index:3;
+
+}
+/* NOUVEAU CSS RAJOUTE LE 6 Fevrier 2013 */
+/*Notes*/
+ul.notes-echelle {
+                margin:0;
+                padding:0;
+                font:.75em/1.2 Arial, Helvetica, sans-serif;
+}
+ul.notes-echelle li {
+                float:left;
+                color: black;
+                margin:0;
+                padding:0;
+                list-style:none;
+                min-width:20px;
+                min-height:20px;
+}
+/* Correctif IE6 sur min-width & min-height */
+* html ul.notes-echelle.js li {
+                width:20px;
+                height:20px;
+}
+ul.notes-echelle li label {
+                display:block;
+                text-align:center;
+                margin:0;
+                padding:0;
+                line-height:20px;
+                background:url(icones/etoiles.gif) center top no-repeat;
+                cursor:pointer;
+                float:none;
+                width:20px;
+}
+ul.notes-echelle li.note-off label {
+                background-position:center -60px;
+}
+ul.notes-echelle.js input {
+position:absolute;
+left:-999%;
+}
+ 
+.note{                                                                          
+	background:url(icones/etoiles.gif) left top no-repeat;
+}
+
+/*Bloc Interaction*/
+#bloc_interaction{
+	background-color:#333333;
+	/*clear: both;*/
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+    padding: 10px;
+	overflow: hidden;
+
+}
+#bloc_interaction .post{
+	position:relative;
+	border: 1px solid black;
+	margin-top: 10px;
+	/*margin-bottom:10px;*/
+	color: black;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	background-color: white;
+}
+
+#bloc_interaction #img_mini, #bloc_interaction #post_text{
+display: inline-block;}
+
+
+.pane .delete{ 
+cursor: pointer;
+}
+.pane .unapprove{
+cursor: pointer;
+margin-right:5px;
+}
+input[type="submit"]{
+position: relative;
+left: 20px;
+}
+#bloc_interaction .post_text{ color: black; padding-left: 10px; }
+#bloc_interaction .post span:nth-child(2){ margin-right:20px;} /*Soit Span de l'AUTEUR */
+#bloc_interaction .post span:nth-child(3){ color: gray;} /*Soit Span de l'HEURE DU TYPE */
+#bloc_interaction .post>#post_croix {position: absolute; top:10px; right: 10px;padding:1px;}
+#bloc_interaction .post>#post_croix_masque{position: absolute; top:10px; right: 30px;padding:1px;}
+#bloc_interaction h1{
+	margin-left: 5px;
+	padding-left: 20px;
+	padding-right: 5px;
+	margin-right:5px;
+	background-color: black;
+	color: white;
+}
+#bloc_interaction p, #bloc_interaction ul
+{
+    font-size: 1.2em;
+	color: black;
+}
+
+#comm
+{
+    display: inline-block;
+    vertical-align: top;
+	text-align: left;
+    width: 100%;
+}
+.delimitation{clear:both;}
+.note_top a {
+	text-decoration: none;
+	color: white;
+}
+.note_top{padding: 5px 10px;-webkit-border-radius: 8px;-moz-border-radius: 8px; border-radius: 8px;-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;box-shadow: rgba(0,0,0,1) 0 1px 0;text-shadow: rgba(0,0,0,.4) 0 1px 0;color: white;font-size: 14px;font-family: Georgia, serif;text-decoration: none;vertical-align: middle;}
+.note_top a:hover{ padding:0px 25px; }
+.note_top1{border-top: 1px solid #96d1f8;background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7)); background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7); background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7);}
+.note_top2{border-top: 1px solid #df97f7; background: #d065d6; background: -webkit-gradient(linear, left top, left bottom, from(#9c3e89), to(#d065d6)); background: -webkit-linear-gradient(top, #9c3e89, #d065d6); background: -moz-linear-gradient(top, #9c3e89, #d065d6); background: -ms-linear-gradient(top, #9c3e89, #d065d6); background: -o-linear-gradient(top, #9c3e89, #d065d6);}
+.note_top3{border-top: 1px solid #e6bb65;background: #c79345;background: -webkit-gradient(linear, left top, left bottom, from(#c46b27), to(#c79345));background: -webkit-linear-gradient(top, #c46b27, #c79345);background: -moz-linear-gradient(top, #c46b27, #c79345);background: -ms-linear-gradient(top, #c46b27, #c79345);background: -o-linear-gradient(top, #c46b27, #c79345);}
+.note_top4{border-top: 1px solid #7be665;background: #84c745;background: -webkit-gradient(linear, left top, left bottom, from(#0ac700), to(#84c745));background: -webkit-linear-gradient(top, #0ac700, #84c745);background: -moz-linear-gradient(top, #0ac700, #84c745);background: -ms-linear-gradient(top, #0ac700, #84c745);background: -o-linear-gradient(top, #0ac700, #84c745);}
+.note_top5{border-top: 1px solid #d95353;background: #e64040;background: -webkit-gradient(linear, left top, left bottom, from(#e00d1f), to(#e64040));background: -webkit-linear-gradient(top, #e00d1f, #e64040);background: -moz-linear-gradient(top, #e00d1f, #e64040);background: -ms-linear-gradient(top, #e00d1f, #e64040);background: -o-linear-gradient(top, #e00d1f, #e64040);}

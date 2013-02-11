@@ -1,0 +1,21 @@
+<table>
+																   
+					<tr>
+																   
+							<td>
+							<a href="index.php?page=<?php echo $tabRecherche['type']; ?>&id_artiste=<?php echo $tabRecherche['id_artiste']; ?>&id_oeuvre=<?php echo $tabRecherche['id_oeuvre'];?>" target="_self">
+																	  
+							<img src="<?php echo $tabRecherche['url']; ?>" class="miniature" title="<?php echo $tabRecherche['titre']; ?>" alt="<?php echo $tabRecherche['titre']; ?>"/></a>
+																	 
+							</td>
+																	   
+						<td>
+							<h3><?php echo htmlentities($tabRecherche['titre']); ?></h3>
+							R&eacute;alis&eacute par <?php echo htmlentities($tabRecherche['prenom'])."&nbsp;".htmlentities($tabRecherche['nom']); ?>
+						<br/>
+							Genre : <?php if($tabRecherche['genre1'] == $tabRecherche['genre2']) { echo $tabRecherche['genre1']; } else { echo $tabRecherche['genre1'].",&nbsp;".$tabRecherche['genre2']; } ?>
+						</td>
+																   
+					</tr>
+																   
+				 </table>
