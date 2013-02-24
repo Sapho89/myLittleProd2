@@ -9,9 +9,9 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 			WHILE($tabInfo = mysql_fetch_assoc($rsInfo))
 			{?>
 	<div class="contenu_droite">
-		<div class="presentation"> 
+		<div class="petit_bloc"> 
 			<h2>&Agrave; propos de l'artiste</h2>
-				<img src='<?php echo $tabInfo['avatar']; ?>' class="mini" alt='avatar'/>
+				<img class="avatar" src='<?php echo $tabInfo['avatar']; ?>'  alt='avatar'/>
 			<p><?php echo htmlentities($tabInfo['description']); ?></p>
 		</div>
 	
@@ -26,10 +26,12 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 			?>
 	
 	
-			<div class='meme_auteur'>		
+			<div class='petit_bloc'>		
 			<?php
-			 $i=0; ?>
-			 <h2> Oeuvres du m&ecirc;me artiste </h2> <?php 
+			 $i=0;
+                         
+                         if($_GET['page']!= 'musique') echo "<h2> Oeuvres du m&ecirc;me artiste </h2> ";
+			 
 				WHILE($tabMmAuteur = mysql_fetch_assoc($resMmAuteur))
 					{ 
 
@@ -37,6 +39,7 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 					if(($_GET['page'] == 'musique') && ($tabMmAuteur['id_oeuvre'] == $_GET['id_oeuvre']) ){
 					
 				?>
+                            <h2> <?php echo $tabMmAuteur['titre']; ?> </h2> 
 				
 					<object type="application/x-shockwave-flash" data="musique/dewplayer-rect.swf?autostart=true" width="150" height="20" id="dewplayer" name="dewplayer">
 					<param name="movie" value="musique/dewplayer-rect.swf?autostart=true" />
@@ -46,10 +49,10 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 				
 				<?php }else if($tabMmAuteur['id_oeuvre'] != $_GET['id_oeuvre']){?>
 				
-				
+			
 				
 				<a href="index.php?page=<?php echo $_SESSION['page']; ?>&id_artiste=<?php echo $tabMmAuteur['id_artiste']; ?>&id_oeuvre=<?php echo $tabMmAuteur['id_oeuvre'];?>" target="_self">
-				<img src="<?php echo $tabMmAuteur['url']; ?>"  title="<?php echo $tabMmAuteur['titre']; ?>" alt="<?php echo $tabMmAuteur['titre']; ?>"/></a>
+				<img class="avatar" src="<?php echo $tabMmAuteur['url']; ?>"  title="<?php echo $tabMmAuteur['titre']; ?>" alt="<?php echo $tabMmAuteur['titre']; ?>"/></a>
 				<?php
 				
 				
@@ -57,7 +60,7 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 				$i++;	
 					}
 					
-			}else die("Aucune autre oeuvre du même auteur trouvé");//die("Impossible d'afficher les oeuvres du meme auteur ".mysql_error());
+			}else die("Aucune autre oeuvre du mï¿½me auteur trouvï¿½");//die("Impossible d'afficher les oeuvres du meme auteur ".mysql_error());
 	
 
 	?>
@@ -66,15 +69,10 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 	
 	</div>
 				
-				<div class='connexionArt'>
-							<?php include_once("connexionArt.php"); ?>
-				</div>	
-				
-				
-				
+			
 				
 		<div class="contenu_central">
-		<div class="presentation2">
+		<div class="bloc_horizontal">
 	<h1><?php echo html_entity_decode($tabInfo['titre']); ?></h1><h4><?php echo "R&eacute;alis&eacute; par ".html_entity_decode($tabInfo['prenom'])." ".html_entity_decode($tabInfo['nom']); ?></h4>
 
 
@@ -111,7 +109,7 @@ else  { echo "<b>Pour noter une oeuvre ou la commenter, vous devez d'abord vous 
 	
 
 
-<div class="autres_oeuvres" >
+<div class="bloc_horizontal" >
 
 	<h2> Autres oeuvres qui pourraient &eacute;galement vous int&eacute;resser</h2>
 	
@@ -159,3 +157,11 @@ else {
 }
 
 	?>
+
+
+<?php if(!isset($_SESSION['type'])) { ?>
+<div class='connexionArt'>
+	<?php include_once("connexionArt.php"); ?>
+</div>
+
+<?php }  ?>

@@ -1,4 +1,4 @@
-<div id="bulle">
+
 
 <?php
 if(!isset($_SESSION['type']))
@@ -23,9 +23,9 @@ if(!isset($_SESSION['type']))
 			}
 			
 			
-		if($ligne['mdp'] != $mdp)	
+		if( ($ligne['mdp'] != $mdp) || ($ligne['pseudo'] != $pseudo) )	
 			{
-			echo "<img src='croix.png' height='14px' width='13px'/>&nbsp;Vos identifiants sont incorrects !<br/><br/><a href='index.php'> Revenir au formulaire </a>";
+			echo "<img src='images/croix.png' height='14px' width='13px'/>&nbsp;Vos identifiants sont incorrects !<br/><br/><a href='index.php'> Revenir au formulaire </a>";
 			}
 			else 
 				{
@@ -44,35 +44,36 @@ if(!isset($_SESSION['type']))
 				$_SESSION['genre'] = conversion_genre($ligne['talent']);
 				}
 				
+                                //echo 'Bienvenue '.$_SESSION["pseudo"].', vous &ecirc;tes bien connect&eacute;.';
+                                
 				}
-				echo 'Bienvenue '.$_SESSION["pseudo"].', vous &ecirc;tes bien connect&eacute;.';
+				
 			}
 			else 
 			{		
 			?>
-		<form action="index.php?page=index" method="post">                 <!-- on affiche le formulaire tant qu'on a pas cliqu� sur le bouton -->
-		<input id="pseudo" type="text" name="pseudo" value="Votre pseudo" size="10px" 
+<div id="bulle">
+		<form action="index.php" method="post">                 <!-- on affiche le formulaire tant qu'on a pas cliqu� sur le bouton -->
+		<input id="pseudo" type="text" name="pseudo" value="Votre pseudo" size="13" 
 		onBlur="if(this.value == '') { this.value = 'Votre pseudo'}" 
 		onFocus="if(this.value == 'Votre pseudo') { this.value = ''}"/><br /><br />
-		<input id="mdp" type="password" name="mdp" size="10px" value="Votre mot de passe"
+		<input id="mdp" type="password" name="mdp" size="13" value="Votre mot de passe"
 		onBlur="if(this.value == '') { this.value = 'password'}" 
-		onFocus="if(this.value == 'Votre mot de passe') { this.value = ''}"/><br />
+		onFocus="if(this.value == 'password') { this.value = ''}"/>
 		<div>
-			<input type="submit" value="Connexion" name="bouton"/>
+			<input class="bouton" type="submit" value="Connexion" name="bouton"/>
 		</div>
 		<input type='hidden' name='form' value='form_art'/>
 
 		</form>
 
-		<br/>
+		
 		Cr&eacute;er un compte <a href="inscriptionArt.php">artiste</a> OU <a href="inscriptionUser.php" target="_self">membre</a>
+                
+</div>
 		<?php
 		}
-	}
-		else
-		{
-		echo 'Bienvenue '.$_SESSION["pseudo"].', vous &ecirc;tes bien connect&eacute;.';	
-		}
+        }
 	?>
-</div>
+
 	
