@@ -1,3 +1,4 @@
+
 <?php 
 session_start(); 
 ?>
@@ -5,16 +6,9 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
-<script type="text/javascript" src="js/jquery.color-2.1.0.js"></script>
-<script type='text/javascript' src='mesFonctions.js'></script>
-<script type="text/javascript" src="js/formUser.js"></script>
-<script type="text/javascript" src="js/formArt.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/menu.js"></script> 
 <title>My Little Prod</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="conf/style.css" rel="stylesheet" type="text/css" media="screen" />
 <!--[if lt IE 9]> 
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]--> <!-- Pour que IE comprenne balises HTML-->
@@ -23,15 +17,34 @@ session_start();
 <link rel="stylesheet" href="style_ie.css" />
 <![endif]-->	
 		
+<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
+<!--<script type="text/javascript" src="js/jquery.color-2.1.0.js"></script>-->
+<!--<script type='text/javascript' src='js/mesFonctions.js'></script>-->
+<script type="text/javascript" src="js/formUser.js"></script>
+<script type="text/javascript" src="js/formArt.js"></script>
+<script type="text/javascript" src="js/projekktor.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/menu.js"></script> 
+
+
+
+   <script type="text/javascript">
+         $(document).ready(function() {
+               projekktor('projekktor');
+         })
+    </script>
+
+  
+
     </head>
 
 <body>
 <?php
-include_once("connexion.php");
-include("mesfonctions.php");
-include("fonction.php");
-
+include_once("conf/connexion.php");
+include("conf/fonction.php");
 require_once("menu.php");
+
+date_default_timezone_set('Europe/Paris'); 
 
 ?>
 		
@@ -54,13 +67,15 @@ if (isset($_GET['page']) && $_GET['page'] != 'index') {
 		
 <?php }else { ?>		
 	
-	<div class="contenu_droite">
+	<div class="contenu_gauche">
 						
 							<div class="petit_bloc">
                                                             <h2>concours</h2>
-								&Ecirc;tes-vous dessinateur, chanteur, peintre ou encore &eacute;crivain ? 
-								MyLittleProd organise un concours &agrave; la fois original et unique.
-								Nous recherchons des personnes talentueuses. Pour participer, il vous suffit de cr&eacute;er un compte en tant qu'artiste. 
+                                                                Bienvenue dans le site concours My Little Prod organisé par MUJI.
+                                                                Votre magasin MUJI organise un concours à la fois original, unique et gratuit !
+                                                                Vous aimez dessiner, chanter ou encore écrire, alors n'attendez plus, ce concours est fait pour vous !
+								Publiez ici vos oeuvres d'art et tentez dès à présent de remporter le grand prix.
+								Pour participer, il vous suffit de cr&eacute;er un compte en tant qu'artiste. 
 							</div>
 						
 							<div class="petit_bloc">
@@ -68,10 +83,12 @@ if (isset($_GET['page']) && $_GET['page'] != 'index') {
 								<?php include_once("top_artiste.php"); ?>
 							</div>	
 								
-							
+							<!--
 							<div class="petit_bloc">
-                                                            <h2>derniers inscrits</h2>
-							</div>
+                                                            <h2>derniers inscrits</h2
+                                                            <?php //include_once('derniersInscrits.php');?>
+							</div>-->
+
 						
 	</div>
 					
@@ -82,13 +99,22 @@ if (isset($_GET['page']) && $_GET['page'] != 'index') {
 						<?php include_once 'contenu_accueil.php';?>
 						</div>
 <?php if(!isset($_SESSION['type'])) {?>
-    <div class='connexionArt'>
-	<?php include_once("connexionArt.php"); ?>			
-    </div>
+    
+	<?php include_once("connexion_utilisateur.php"); ?>			
+    
 <?php } ?>    
+    
+    
+    
+    <div class="contenu_droite">
+        <br/>
+        <h2>Dernier contenu ajouté</h2>
+        <div><?php include_once('contenu_ajoute.php'); ?></div>
+    </div>
     
 <?php } ?>	
 </div>			
 </body>
 
 </html>
+

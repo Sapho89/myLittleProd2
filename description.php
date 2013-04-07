@@ -8,7 +8,7 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 		{
 			WHILE($tabInfo = mysql_fetch_assoc($rsInfo))
 			{?>
-	<div class="contenu_droite">
+	<div class="contenu_gauche">
 		<div class="petit_bloc"> 
 			<h2>&Agrave; propos de l'artiste</h2>
 				<img class="avatar" src='<?php echo $tabInfo['avatar']; ?>'  alt='avatar'/>
@@ -47,6 +47,9 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 					<param name="wmode" value="transparent" />
 					</object>
 				
+                            
+
+                            
 				<?php }else if($tabMmAuteur['id_oeuvre'] != $_GET['id_oeuvre']){?>
 				
 			
@@ -73,24 +76,43 @@ if(isset($_GET['id_oeuvre']) && isset($_GET['id_artiste'])){
 				
 		<div class="contenu_central">
 		<div class="bloc_horizontal">
-	<h1><?php echo html_entity_decode($tabInfo['titre']); ?></h1><h4><?php echo "R&eacute;alis&eacute; par ".html_entity_decode($tabInfo['prenom'])." ".html_entity_decode($tabInfo['nom']); ?></h4>
+	<h1><?php echo htmlentities($tabInfo['titre']); ?></h1><h4><?php echo "R&eacute;alis&eacute; par ".htmlentities($tabInfo['prenom'])." ".htmlentities($tabInfo['nom']); ?></h4>
 
 
 	<br/>
 	
+        <?php if($_GET['page'] == 'video') {?>
+       
+
+<video id="player_a" class="projekktor" poster="<?php echo $tabInfo['url'];?>" title="this is projekktor" width="100%" height="auto" controls>
+    <source src="<?php echo $tabInfo['url_son'];?>" type="video/mp4" />
+
+</video>
+        
+        <?php }else { ?>
+        
+        
 	<a href="<?php echo $tabInfo['url'];?>" onClick='PopupImage();return false;'>
 		<img class='img_texte'	name='img_texte' src="<?php echo $tabInfo['url'];?>" alt='image'/>
 		<!--<img src='image/loupe.png' id='loupe' alt='icone_loupe' width='25px' height='30px'/>-->
 	</a>
 	
-
+        <?php  } ?>
+        
 	<p>
 	
 	<!-- Recuperation de la date au format francais -->
 	
 	<i>Publi&eacute; le <?php echo substr($tabInfo['date_updated'], 8, 2)."".substr($tabInfo['date_updated'], 4, 4)."".substr($tabInfo['date_updated'], 0, 4); ?></i>
 	
-	<!-- -->
+        <!-- Note de l'oeuvre -->
+         <?php if(getNote($_GET['id_oeuvre']) != 0 ) { ?>
+        
+        <?php echo "<br/>Note globale :".getNote($_GET['id_oeuvre']); 
+        
+         }else echo ""; ?>
+        
+	<!-- Description de l'artiste -->
 	
 	<h2>Description </h2><?php echo htmlentities($tabInfo['synopsis']); ?><br /><br />
 	
@@ -114,20 +136,22 @@ else  { echo "<b>Pour noter une oeuvre ou la commenter, vous devez d'abord vous 
 	<h2> Autres oeuvres qui pourraient &eacute;galement vous int&eacute;resser</h2>
 	
 	<?php
-	$reqAutre = "SELECT * FROM oeuvre as O, genre as g1, genre as g2, artiste as A WHERE O.id_oeuvre!='".$_GET['id_oeuvre']."' AND g1.type='".$_SESSION['page']."' AND O.id_genre1 = g1.id_genre AND O.id_genre2 = g2.id_genre AND O.id_artiste = A.id_artiste LIMIT 4";
-	if($resAutre = mysql_query($reqAutre))
+	$reqAutre = "SELECT * FROM oeuvre as O, genre as g1, genre as g2, artiste as A WHERE O.id_oeuvre!='".$_GET['id_oeuvre']."' AND g1.type='".$_GET['page']."' AND O.id_genre1 = g1.id_genre AND O.id_genre2 = g2.id_genre AND O.id_artiste = A.id_artiste LIMIT 4";
+	
+        
+        if($resAutre = mysql_query($reqAutre))
 	{
 	 $i=0;
 		WHILE($tabAutre = mysql_fetch_assoc($resAutre))
 			{ 
 
 		?>
-		<a href="index.php?page=<?php echo  $_SESSION['page']; ?>&id_artiste=<?php echo $tabAutre['id_artiste']; ?>&id_oeuvre=<?php echo $tabAutre['id_oeuvre'];?>" target="_self">
+		<a href="index.php?page=<?php echo  $_GET['page']; ?>&id_artiste=<?php echo $tabAutre['id_artiste']; ?>&id_oeuvre=<?php echo $tabAutre['id_oeuvre'];?>" target="_self">
 		<img src="<?php echo $tabAutre['url']; ?>" class="miniature" title="<?php echo $tabAutre['titre']; ?>" alt="<?php echo $tabAutre['titre']; ?>"/></a>
 		<?php
 		$i++;
 			}
-	}
+	}else die("Erreur affichage d'autres oeuvres ".mysql_error());
 	?>
 </div>
 
@@ -160,8 +184,8 @@ else {
 
 
 <?php if(!isset($_SESSION['type'])) { ?>
-<div class='connexionArt'>
-	<?php include_once("connexionArt.php"); ?>
-</div>
+
+	<?php include_once("connexion_utilisateur.php"); ?>
+
 
 <?php }  ?>

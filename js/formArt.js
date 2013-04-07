@@ -5,11 +5,11 @@ function check(type)
     {
         if(document.getElementById(type).value.length <= 2)
         {
-            document.getElementById('verifNom').innerHTML='<img src="croix.png" height="14px" width="13px"/> Le nom ne peut pas faire moins de 2 caract&egrave;res !';
+            document.getElementById('verifNom').innerHTML='<img src="images/croix_rouge.png"/> Le nom ne peut pas faire moins de 2 caract&egrave;res !';
         }
         else
           {
-               document.getElementById('verifNom').innerHTML='<img src="ok.png" height="14px" width="13px"/>';
+               document.getElementById('verifNom').innerHTML='<img src="images/ok.png"/>';
           }   
     }
 	
@@ -19,26 +19,52 @@ function check(type)
 	{
 		if(document.getElementById(type).value.length <= 2)
         {
-            document.getElementById('verifPrenom').innerHTML='<img src="croix.png" height="14px" width="13px"/> Le pr&eacute;nom ne peut pas faire moins de 2 caract&egrave;res !';
+            document.getElementById('verifPrenom').innerHTML='<img src="images/croix_rouge.png"/> Le pr&eacute;nom ne peut pas faire moins de 2 caract&egrave;res !';
         }
         else
           {
-               document.getElementById('verifPrenom').innerHTML='<img src="ok.png" height="14px" width="13px"/>';
+               document.getElementById('verifPrenom').innerHTML='<img src="images/ok.png"/>';
           }   
 	}
     
 	
-		else if(type == 'pseudo')
+        else if(type == 'pseudo')
 	{
 		if(document.getElementById(type).value.length <= 2)
         {
-            document.getElementById('verifPseudo').innerHTML='<img src="croix.png" height="14px" width="13px"/> Le pseudo ne peut pas faire moins de 2 caract&egrave;res !';
+            document.getElementById('verifPseudo').innerHTML='<img src="images/croix_rouge.png"/> Le pseudo ne peut pas faire moins de 2 caract&egrave;res !';
         }
         else
           {
-               document.getElementById('verifPseudo').innerHTML='<img src="ok.png" height="14px" width="13px"/>';
+               document.getElementById('verifPseudo').innerHTML='<img src="images/ok.png"/>';
           }   
 	}
+        
+         else if(type == 'date_naissance')
+	{
+		if(document.getElementById(type).value == '')
+        {
+            document.getElementById('verifDate_naissance').innerHTML='<img src="images/croix_rouge.png"/> Veuillez s&eacute;lectionner votre date de naissance !';
+        }
+        else
+          {
+               document.getElementById('verifDate_naissance').innerHTML='<img src="images/ok.png"/>';
+          }   
+	}
+    
+    
+         else if(type == 'talent')
+	{
+		if(document.getElementById(type).value == '')
+        {
+            document.getElementById('verifTalent').innerHTML='<img src="images/croix_rouge.png"/> Veuillez faire un choix !';
+        }
+        else
+          {
+               document.getElementById('verifTalent').innerHTML='<img src="images/ok.png"/>';
+          }   
+	}
+    
     
     
 	else if(type == 'description')
@@ -46,11 +72,11 @@ function check(type)
      
         if(document.getElementById(type).value == "")
         {
-            document.getElementById('verifDescription').innerHTML='<img src="croix.png" height="14px" width="13px"/> Veuillez remplir ce champs !';
+            document.getElementById('verifDescription').innerHTML='<img src="images/croix_rouge.png"/> Veuillez remplir ce champs !';
         }
 		else
           {
-               document.getElementById('verifDescription').innerHTML='<img src="ok.png" height="14px" width="13px"/>';
+               document.getElementById('verifDescription').innerHTML='<img src="images/ok.png"/>';
           }
         
     }
@@ -61,11 +87,11 @@ function check(type)
      
         if(document.getElementById(type).value.indexOf('@') == -1)
         {
-            document.getElementById('verifMail').innerHTML='<img src="croix.png" height="14px" width="13px"/> L\'adresse mail n\'est pas valide !';
+            document.getElementById('verifMail').innerHTML='<img src="images/croix_rouge.png"/> L\'adresse mail n\'est pas valide !';
         }
         else
           {
-               document.getElementById('verifMail').innerHTML='<img src="ok.png" height="14px" width="13px"/>';
+               document.getElementById('verifMail').innerHTML='<img src="images/ok.png"/>';
           }
         
     }
@@ -75,22 +101,22 @@ function check(type)
         
         if(document.getElementById(type).value.length < 5)
         {
-            document.getElementById('verifMdp1').innerHTML='<img src="croix.png" height="14px" width="13px"/> Le mot de passe ne peut pas faire moins de 5 caract&egrave;res !';
+            document.getElementById('verifMdp1').innerHTML='<img src="images/croix_rouge.png"/> Le mot de passe ne peut pas faire moins de 5 caract&egrave;res !';
         }
         else
           {
-               document.getElementById('verifMdp1').innerHTML='<img src="ok.png" height="14px" width="13px"/>';
+               document.getElementById('verifMdp1').innerHTML='<img src="images/ok.png"/>';
           }
     }
   
-function checkForm()
+function checkFormArt()
 {
-    if( (document.getElementById('verifNom').innerHTML='<img src="ok.png" height="14px" width="13px"/>') && 
-		(document.getElementById('verifPrenom').innerHTML='<img src="ok.png" height="14px" width="13px"/>') &&
-		(document.getElementById('verifPseudo').innerHTML='<img src="ok.png" height="14px" width="13px"/>') &&
-		(document.getElementById('verifDescription').innerHTML='<img src="ok.png" height="14px" width="13px"/>') &&
-		(document.getElementById('verifMail').innerHTML='<img src="ok.png" height="14px" width="13px"/>')  &&
-		(document.getElementById('verifMdp1').innerHTML='<img src="ok.png" height="14px" width="13px"/>')
+    if( (document.getElementById('verifNom').innerHTML='<img src="images/ok.png"/>') && 
+		(document.getElementById('verifPrenom').innerHTML='<img src="images/ok.png"/>') &&
+		(document.getElementById('verifPseudo').innerHTML='<img src="images/ok.png"/>') &&
+		(document.getElementById('verifDescription').innerHTML='<img src="images/ok.png"/>') &&
+		(document.getElementById('verifMail').innerHTML='<img src="images/ok.png"/>')  &&
+		(document.getElementById('verifMdp1').innerHTML='<img src="images/ok.png"/>')
 	  )
         {
          document.formArt.submit();
@@ -101,10 +127,12 @@ function checkForm()
                check(prenom); 
                check(mail); 
                check(mdp1);
-			   check(description);			   
-			   check(pseudo);
+               check(description);			   
+       	       check(pseudo);
+               check(talent);
+               check(date_naissance);
 			   
-			}
+            }
 }
 
   

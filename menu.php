@@ -1,6 +1,5 @@
 
 <div id="menu">
-    
     <ul class="menu">
         
         <li><a href="index.php"><span><img alt="accueil" title="accueil" style="margin-top:-8px;" src="images/home.png" /></span></a> </li>
@@ -8,7 +7,7 @@
 		<li><a href="index.php?page=musique"><span>Musique</span></a> </li>
 		<li><a href="index.php?page=image"><span>Image</span></a> </li>
 		<li><a href="index.php?page=litterature"><span>Litt&eacute;rature</span></a> </li>
-                <li><a href="#"><span>Contact</span></a></li>
+                <!--<li><a href="#"><span>Contact</span></a></li>-->
 		<!--<li>
 			<a href="#" class="parent"><span>Moteur de recherche</span></a>
                         <fieldset>

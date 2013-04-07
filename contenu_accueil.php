@@ -1,168 +1,73 @@
-<h1>SLIDE DERNIERS CONTENUS</h1>
-						<div class="bloc_horizontal">
-						</div> 
+
 						
-							<h1 class='titre_fiche'>TOP NOTE</h1>
-							<div class="bloc_horizontal"> <?php 
-							$req = "SELECT COUNT( * ) AS nb, o.*, AVG( n.note_valeur ) AS note_val FROM  `note` AS n, oeuvre AS o WHERE n.id_oeuvre = o.id_oeuvre GROUP BY n.id_oeuvre ORDER BY COUNT( * ) DESC , AVG( n.note_valeur ) DESC LIMIT 0,5"; 
+							
+							<div class="bloc_horizontal">
+                                                            <h1 >TOP NOTE</h1><br/> <?php 
+							$req = "SELECT COUNT( * ) AS nb, o.*,
+							AVG( n.note_valeur ) AS note_val ,
+							g.*
+							FROM  `note` AS n, 
+							oeuvre AS o,
+							genre AS g							
+							WHERE n.id_oeuvre = o.id_oeuvre 
+							AND o.id_genre1 = g.id_genre
+							GROUP BY n.id_oeuvre 
+							ORDER BY AVG( n.note_valeur )
+							DESC LIMIT 0,5"; 
+							
 							$res = mysql_query($req) or die($req);
 							$i = 1;
 							
 							while($ligne = mysql_fetch_assoc($res)){
-							$req_g = "SELECT * FROM GENRE WHERE id_genre=".$ligne['id_genre1'];
-							$res_g = mysql_query($req_g);
-							$ligne_g = mysql_fetch_assoc($res_g);
-							$genre = $ligne_g['type'];
+							
+							$genre = $ligne['type'];
 							$url = "index.php?page=".$genre."&id_artiste=".$ligne['id_artiste']."&id_oeuvre=".$ligne['id_oeuvre'];
-							echo "<div class='note_top note_top$i'><a href='".$url."'>".$i." ".strtoupper($ligne['titre'])." ".number_format($ligne['note_val'],1).",Total de ".$ligne['nb']." votes</a><br /></div>";
+							echo "<div class='note_top'><a href='".$url."'><span style='color:#FFFFFF;font-family:Helvetica;'>".$i."</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ".strtoupper($ligne['titre'])." : ".number_format($ligne['note_val'],1)."</a><br /></div>";
 							$i++;
 							} ?>
 							</div>
-							<h1>WALL D'ACTUALITE [Commentaires]</h1>
+                                                        
+                                                        
+                                                        
+                                                        
+							
 							<div class="bloc_horizontal"> 
+                                                            <h1>DERNIERS COMMENTAIRES</h1>
 							<div id='bloc_interaction' >
 							<div id='Comm'><?php 
-							$req = "SELECT * FROM commentaire ORDER BY date_updated DESC";
-							$res = mysql_query($req);
-							$titre = "";
-							while($ligne = mysql_fetch_assoc($res))
+							$req = "SELECT * FROM commentaire ORDER BY date_updated DESC LIMIT 7";
+							$resInfos2 = mysql_query($req) OR die("Erreur selection comm ".  mysql_error());
+							
+                                                        
+                                                        $i = 0;
+                                                        $titre = "";
+							WHILE($tabInfos2 = mysql_fetch_assoc($resInfos2))
 							{
-							$req_o = "SELECT * FROM oeuvre WHERE id_oeuvre = ".$ligne['id_oeuvre']." ORDER by date_updated DESC";
-							$res_o = mysql_query($req_o);
-							$ligne_o = mysql_fetch_assoc($res_o);
-							$req_g = "SELECT * FROM GENRE WHERE id_genre=".$ligne_o['id_genre1'];
-							$res_g = mysql_query($req_g);
-							$ligne_g = mysql_fetch_assoc($res_g);
-							$genre = $ligne_g['type'];
-							
-							$heure = conversionToHourFacebook(new DateTime($ligne['date_updated']));
-							$type = getTypeId($ligne['id_membre']);
-							$src = getSrcAvatar($ligne['id_membre'],$type);
-							$id_commentaire = $ligne['id_commentaire'];
-							$titre = $ligne_o['titre']; 
-							$url = "index.php?page=".$genre."&id_artiste=".$ligne_o['id_artiste']."&id_oeuvre=".$ligne_o['id_oeuvre'];
-								echo "<div class='pane post' id='$id_commentaire'>
-									<img src='$src'		alt='avatar' id='img_mini' width='50px' height='50px'>
-									<div id='post_text'>
-										<div>".$ligne['txt_com']."</div>
-										<span><a href='#'>".getPseudo($ligne['id_membre'],$type)."</a></span>
-										<span>$heure</span>
-										<span class='lien_wall'><a href='".$url."' >".html_entity_decode($titre)."</a></span>
-									</div>";
-								echo "</div>";
-							} ?>
-							</div></div>
-							<!-- <img src="icones/Twitter.bmp" width="480px" height="614px"/> -->
-							<!--   Qui as comment� ? qui as not� quoi ? Qui vient de s'inscrire ? Qui vient de se connecter ? -->
-							</div> 
-							
-							<h1>WALL D'ACTUALITE [Notes]</h1>
-							<div class="bloc_horizontal"> 
-							<div id='bloc_interaction' >
-							<div id='Comm'><?php 
-							$req = "SELECT * FROM note";
-							$res = mysql_query($req);
-							$titre = "";
-							while($ligne = mysql_fetch_assoc($res))
-							{
-							$req_o = "SELECT * FROM oeuvre WHERE id_oeuvre = ".$ligne['id_oeuvre']." ORDER by date_updated DESC";
-							$res_o = mysql_query($req_o);
-							$ligne_o = mysql_fetch_assoc($res_o);
-							$req_g = "SELECT * FROM GENRE WHERE id_genre=".$ligne_o['id_genre1'];
-							$res_g = mysql_query($req_g);
-							$ligne_g = mysql_fetch_assoc($res_g);
-							$genre = $ligne_g['type'];
-							
-							//$heure = conversionToHourFacebook(new DateTime($ligne['date_updated']));
-							$type = getTypeId($ligne['id_membre']);
-							$src = getSrcAvatar($ligne['id_membre'],$type);
-							$id_note = $ligne['id_note'];
-							$titre = $ligne_o['titre']; 
-							$url = "index.php?page=".$genre."&id_artiste=".$ligne_o['id_artiste']."&id_oeuvre=".$ligne_o['id_oeuvre'];
-								echo "<div class='pane post' id='$id_note'>
-									<img src='$src'		alt='avatar' id='img_mini' width='50px' height='50px'>
-									<div id='post_text'>
-										<div>Note de ".$ligne['note_valeur']."</div>
-										<span><a href='#'>".getPseudo($ligne['id_membre'],$type)."</a></span>
-										<span>$heure</span>
-										<span class='lien_wall'><a href='".$url."' >".html_entity_decode($titre)."</a></span>
-									</div>";
-								echo "</div>";
-							} ?>
-							</div></div>
-							<!-- <img src="icones/Twitter.bmp" width="480px" height="614px"/> -->
-							<!--   Qui as comment� ? qui as not� quoi ? Qui vient de s'inscrire ? Qui vient de se connecter ? -->
-							</div> 
-							
-							<h1>WALL D'ACTUALITE [Nouveau contenu ajout�]</h1>
-							<div class="bloc_horizontal"> 
-							<div id='bloc_interaction' >
-							<div id='Comm'><?php 
-							$req = "SELECT * FROM oeuvre ORDER BY date_updated DESC";
-							$res = mysql_query($req);
-							$titre = "";
-							while($ligne = mysql_fetch_assoc($res))
-							{
-							$req_o = "SELECT * FROM oeuvre WHERE id_oeuvre = ".$ligne['id_oeuvre']." ORDER by date_updated DESC";
-							$res_o = mysql_query($req_o);
-							$ligne_o = mysql_fetch_assoc($res_o);
-							$req_g = "SELECT * FROM GENRE WHERE id_genre=".$ligne_o['id_genre1'];
-							$res_g = mysql_query($req_g);
-							$ligne_g = mysql_fetch_assoc($res_g);
-							$genre = $ligne_g['type'];
-							
-							$heure = conversionToHourFacebook(new DateTime($ligne['date_updated']));
-							$type = getTypeId($ligne['id_artiste']);
-							$src = getSrcAvatar($ligne['id_artiste'],$type);
-							$id_oeuvre = $ligne['id_oeuvre'];
-							$titre = $ligne_o['titre']; 
-							$url = "index.php?page=".$genre."&id_artiste=".$ligne_o['id_artiste']."&id_oeuvre=".$ligne_o['id_oeuvre'];
-								echo "<div class='pane post' id='$id_oeuvre'>
-									<img src='$src'		alt='avatar' id='img_mini' width='50px' height='50px'>
-									<div id='post_text'>
-										<div><i>".$ligne_o['titre']."</i> a ete rajoute</div>
-										<span><a href='#'>".getPseudo($ligne['id_artiste'],'a')."</a></span>
-										<span>$heure</span>
-										<span class='lien_wall'><a href='".$url."' >".html_entity_decode($titre)."</a></span>
-									</div>";
-								echo "</div>";
-							} ?>
-							</div></div>
-							<!-- <img src="icones/Twitter.bmp" width="480px" height="614px"/> -->
-							<!--   Qui as comment� ? qui as not� quoi ? Qui vient de s'inscrire ? Qui vient de se connecter ? -->
-							</div> 
-							<h1>WALL D'ACTUALITE [Nouveaux Inscrits]</h1>
-							<div class="bloc_horizontal"> 
-							<div id='bloc_interaction' >
-							<div id='Comm'><?php 
-							$req = "SELECT * FROM artiste ORDER BY date_updated DESC";
-							$res = mysql_query($req);
-							$titre = "";
-							while($ligne = mysql_fetch_assoc($res))
-							{/*
-							$req_o = "SELECT * FROM oeuvre WHERE id_oeuvre = ".$ligne['id_oeuvre']." ORDER by date_updated DESC";
-							$res_o = mysql_query($req_o);
-							$ligne_o = mysql_fetch_assoc($res_o);
-							$req_g = "SELECT * FROM GENRE WHERE id_genre=".$ligne_o['id_genre1'];
-							$res_g = mysql_query($req_g);
-							$ligne_g = mysql_fetch_assoc($res_g);
-							$genre = $ligne_g['type']; */
-							
-							$heure = conversionToHourFacebook(new DateTime($ligne['date_updated']));
-							$type = getTypeId($ligne['id_artiste']);
-							$src = getSrcAvatar($ligne['id_artiste'],$type);
-							//$id_commentaire = $ligne['id_commentaire'];
-							//$titre = $ligne_o['titre']; 
-							$url = "index.php?page=".$genre."&id_artiste=".$ligne_o['id_artiste']."&id_oeuvre=".$ligne_o['id_oeuvre'];
-								echo "<div class='pane post' id='".$ligne['id_artiste']."'>
-									<img src='$src'		alt='avatar' id='img_mini' width='50px' height='50px'>
-									<div id='post_text'>
-										<div></div>
-										<span><a href='#'>".getPseudo($ligne['id_artiste'],$type)."</a></span>
-										<span>$heure</span>
-										<span class='lien_wall'><a href='".$url."' >".html_entity_decode($titre)."</a></span>
-									</div>";
-								echo "</div>";
+
+                                                        $rqOeuvre = "SELECT O.*, G.* FROM oeuvre O
+                                                                   INNER JOIN genre G ON id_genre = id_genre1
+                                                                   WHERE O.id_oeuvre = ".$tabInfos2['id_oeuvre'];
+
+                                                        $rsOeuvre = mysql_query($rqOeuvre) OR die("Erreur selection info oeuvre ".  mysql_error());
+                                                        $tabOeuvre = mysql_fetch_assoc($rsOeuvre);
+
+
+                                                        $genre = $tabOeuvre['type'];
+                                                        $heure = conversionToHourFacebook(date_create($tabInfos2['date_updated']));
+                                                        $type = getTypeId($tabInfos2['id_user']);
+                                                        $src = getSrcAvatar($tabInfos2['id_user'],$type);
+                                                        $titre = $tabOeuvre['titre']; 
+                                                        $url = "index.php?page=".$genre."&id_artiste=".$tabOeuvre['id_artiste']."&id_oeuvre=".$tabOeuvre['id_oeuvre'];
+                                                        echo "<div class='pane post' >
+                                                        &nbsp;<img src='$src' alt='avatar' id='img_mini' width='50px' height='50px'>
+                                                        <div id='post_text'>
+                                                        <span>".getPseudo($tabInfos2['id_user'],$type)." :</span>
+                                                        <div>".$tabInfos2['txt_com']."</div>
+                                                        <span>$heure</span>
+                                                        &nbsp;<span class='lien_wall'><a href='".$url."' title='cliquez pour suivre le lien'>".html_entity_decode($titre)."</a></span>
+                                                         </div>";
+                                                        echo "</div>";
+                                                        $i++;
 							} ?>
 							</div></div>
 							<!-- <img src="icones/Twitter.bmp" width="480px" height="614px"/> -->

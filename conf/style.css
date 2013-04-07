@@ -1,0 +1,947 @@
+/*STRUCTURE GLOBALE */
+html, body {
+	height: 100%;
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 200;
+        color : #FFFFFF;
+        background : #5C4B46;
+        
+        
+	
+}
+
+
+h1 {
+	margin: 0;
+	padding-top: 10px;
+	font-weight: 600;
+	text-align: center;
+	font-size: 1.4em;
+        color: #A88F8F;
+        font-family : Georgia;
+        letter-spacing: 1px;
+
+}
+
+
+h2 {
+	font-size: 0.9em;
+	text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+	text-decoration : underline;
+        color: #A88F8F;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight:600;
+}
+
+h4{
+	text-align: center;
+	font-size: 1em;
+	font-weight:300;
+}
+
+p, ol, ul {
+	margin-top: 0px;
+}
+
+p {
+	line-height: 200%;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.logo{
+    color : black;
+}
+
+/* Bloc principaux */
+
+.main-content{
+	width: 1300px;     
+        height : auto;
+        position : absolute;
+        margin : 0 auto;
+	/*padding: 0px 0px 0px 0px;*/
+	
+
+}
+
+
+.contenu_central {
+	
+        position : relative;
+        float : left;
+	width:510px;
+	height: 100%;    
+        margin-left : 120px;
+        margin-right: 120px;
+
+}
+
+
+
+.contenu_gauche {
+position : relative;
+width: 200px;
+float:left;
+height: 100%;
+margin-left: 50px;
+}
+
+/* Bloc secondaires */
+
+.petit_bloc {
+
+margin: 50px 0 0 20px;
+width:150px;
+height: auto;
+padding: 15px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+margin-right : auto;
+
+}
+
+
+img.miniature {
+width: 100px;
+height:120px;
+padding-right: 10px;
+padding-left:10px;
+}
+
+/* Bloc de droite */ 
+
+.contenu_droite {
+position : relative;
+width: 140px;
+background: #333333;
+float:left;
+height: 100%;
+margin-right: 50px;
+margin-left: 30px;
+margin-top: 20px;
+box-shadow: 5px 5px 10px black;
+}	
+
+.contenuAjoute {
+    height : 140px;
+    width: 120px;
+    padding: 10px;
+    display : block;
+}
+
+    /* Upload */
+    
+    
+.upload {
+position : relative;
+width: 280px;
+background: #333333;
+float:left;
+height: 100%;
+margin-right: 0;
+margin-left: 0;
+padding:2px;
+margin-top: 50px;
+box-shadow: 5px 5px 10px black;
+}	    
+
+	/*  Espace connexion */
+        
+.inscription {
+	
+        position : relative;
+	width:800px;
+	height: 100%;    
+        margin : 0 auto;
+
+}        
+        
+	
+.connexionArt {
+	height: 240px;
+        width: 200px;
+	background: url(../images/bulle.png);
+        background-repeat: no-repeat;
+        float: left;
+        position : relative;
+        margin-top:150px;
+}	
+	
+ a {
+	color: #A88F8F;
+        white-space: nowrap;
+ }	
+	
+#bulle {
+margin-left:30px;
+margin-top:50px;
+}	
+
+.bouton {
+    
+    padding : 2px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.log {
+padding-top: 100px;
+font-weight: bold;
+}
+
+/* Globales ? ttes les cat?gories */
+
+
+.img_texte{
+width: 200px;
+height:240px;
+margin-left : 150px;
+}
+
+
+.avatar {
+margin: auto;
+width: 100px;
+height:100px;
+padding-right: 25px;
+padding-left: 25px;
+}
+
+
+.bloc_horizontal {
+
+margin-top: 40px;
+width:100%;
+padding: 10px;
+background-color:#333333;
+box-shadow: 5px 5px 10px black;
+line-height:20px;
+text-align: justify;
+color: #BC8F8F;
+
+}
+
+
+
+
+/* menu::base */
+#menu {
+    z-index:100;
+    height:43px;
+    position : relative;
+    text-align : center;
+    background:transparent url(../images/header_bg.gif) repeat-x 0 0;  
+}
+
+#menu .menu {
+    margin: 0 auto;	
+    width: 800px;
+}
+
+#menu * {
+    text-decoration : none;
+    list-style:none;
+    border:0;
+    padding:0;
+    margin:0;
+}
+
+#menu a {
+    display:block;
+    padding:15px 14px 14px 14px;
+    white-space:nowrap;
+}
+#menu li {
+    float:left;
+    background:#fff;
+}
+
+#menu div {
+    visibility: hidden;
+    position: absolute;
+    background:url(../images/pix.gif);
+}
+
+
+#menu li:hover span {
+    color:#3C4955;
+}
+
+#menu li.current {    
+    background: transparent url(../images/header_active.gif) repeat-x;
+}
+
+.home{
+    padding: 50px;
+    height : auto;
+}
+
+#menu>ul>li:hover>a {
+    background: transparent url(../images/header_active.gif) repeat-x;
+}
+
+
+#menu span {
+    text-transform:uppercase;
+    font:10px 'Lucida Grande','Lucida Sans Unicode',Arial,Verdana,sans-serif;
+    letter-spacing:0.3em;
+    text-decoration:none;
+    color:#ffffff;
+}
+
+#menu li { background: url(../images/header.gif) left top no-repeat;}
+/* menu::level >= 2 */
+
+
+div#copyright { display: none; }
+
+
+
+#loupe{
+position: absolute;
+z-index:3;
+
+}
+/* NOUVEAU CSS RAJOUTE LE 6 Fevrier 2013 */
+/*Notes*/
+ul.notes-echelle {
+                margin:0;
+                padding:0;
+                font:.75em/1.2 Arial, Helvetica, sans-serif;
+}
+ul.notes-echelle li {
+                float:left;
+                color: black;
+                margin:0;
+                padding:0;
+                list-style:none;
+                min-width:20px;
+                min-height:20px;
+}
+/* Correctif IE6 sur min-width & min-height */
+* html ul.notes-echelle.js li {
+                width:20px;
+                height:20px;
+}
+ul.notes-echelle li label {
+                display:block;
+                text-align:center;
+                margin:0;
+                padding:0;
+                line-height:20px;
+                background:url(../images/etoiles.gif) center top no-repeat;
+                cursor:pointer;
+                float:none;
+                width:20px;
+}
+ul.notes-echelle li.note-off label {
+                background-position:center -60px;
+}
+ul.notes-echelle.js input {
+position:absolute;
+left:-999%;
+}
+ 
+.note{                                                                          
+	background:url(../images/etoiles.gif) left top no-repeat;
+}
+
+/*Bloc Interaction*/
+#bloc_interaction{
+	background-color:#333333;
+	/*clear: both;*/
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+    padding: 10px;
+	overflow: hidden;
+
+}
+#bloc_interaction .post{
+	position:relative;
+	border: 1px solid black;
+	margin-top: 10px;
+	/*margin-bottom:10px;*/
+	color: black;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	background-color: white;
+}
+
+#bloc_interaction #img_mini, #bloc_interaction #post_text{
+display: inline-block;}
+
+
+.pane .delete{ 
+cursor: pointer;
+float: right;
+}
+.pane .unapprove{
+cursor: pointer;
+margin-right:5px;
+}
+
+#bloc_interaction .post_text{ color: black; padding-left: 10px; }
+#bloc_interaction .post span:nth-child(2){ margin-right:20px;} /*Soit Span de l'AUTEUR */
+#bloc_interaction .post span:nth-child(3){ color: gray;} /*Soit Span de l'HEURE DU TYPE */
+#bloc_interaction .post>#post_croix {position: absolute; top:10px; right: 10px;padding:1px;}
+#bloc_interaction .post>#post_croix_masque{position: absolute; top:10px; right: 30px;padding:1px;}
+#bloc_interaction h1{
+	margin-left: 5px;
+	padding-left: 20px;
+	padding-right: 5px;
+	margin-right:5px;
+	background-color: black;
+	color: white;
+}
+#bloc_interaction p, #bloc_interaction ul
+{
+    font-size: 1.2em;
+	color: black;
+}
+
+#comm
+{
+    display: inline-block;
+    vertical-align: top;
+	text-align: left;
+    width: 100%;
+}
+.delimitation{clear:both;}
+.note_top a {
+	text-decoration: none;
+	color: #A88F8F;
+}
+
+
+.note_top{
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px; 
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.top_etoile {
+    background-image:  url("../images/etoile1.png");
+    width: 48px;
+    height : 48px;
+    background-repeat: no-repeat;
+}
+    
+.note_top a:hover{ padding:0px 25px; }
+/*
+.note_top1{border-top: 1px solid #96d1f8;background: #65a9d7; background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7)); background: -webkit-linear-gradient(top, #3e779d, #65a9d7); background: -moz-linear-gradient(top, #3e779d, #65a9d7); background: -ms-linear-gradient(top, #3e779d, #65a9d7); background: -o-linear-gradient(top, #3e779d, #65a9d7);}
+.note_top2{border-top: 1px solid #df97f7; background: #d065d6; background: -webkit-gradient(linear, left top, left bottom, from(#9c3e89), to(#d065d6)); background: -webkit-linear-gradient(top, #9c3e89, #d065d6); background: -moz-linear-gradient(top, #9c3e89, #d065d6); background: -ms-linear-gradient(top, #9c3e89, #d065d6); background: -o-linear-gradient(top, #9c3e89, #d065d6);}
+.note_top3{border-top: 1px solid #e6bb65;background: #c79345;background: -webkit-gradient(linear, left top, left bottom, from(#c46b27), to(#c79345));background: -webkit-linear-gradient(top, #c46b27, #c79345);background: -moz-linear-gradient(top, #c46b27, #c79345);background: -ms-linear-gradient(top, #c46b27, #c79345);background: -o-linear-gradient(top, #c46b27, #c79345);}
+.note_top4{border-top: 1px solid #7be665;background: #84c745;background: -webkit-gradient(linear, left top, left bottom, from(#0ac700), to(#84c745));background: -webkit-linear-gradient(top, #0ac700, #84c745);background: -moz-linear-gradient(top, #0ac700, #84c745);background: -ms-linear-gradient(top, #0ac700, #84c745);background: -o-linear-gradient(top, #0ac700, #84c745);}
+.note_top5{border-top: 1px solid #d95353;background: #e64040;background: -webkit-gradient(linear, left top, left bottom, from(#e00d1f), to(#e64040));background: -webkit-linear-gradient(top, #e00d1f, #e64040);background: -moz-linear-gradient(top, #e00d1f, #e64040);background: -ms-linear-gradient(top, #e00d1f, #e64040);background: -o-linear-gradient(top, #e00d1f, #e64040);}
+
+*/
+
+/* moteur recherche */
+
+/* Menu DEROULANT */
+#cadre-menu {
+	position:fixed;
+	left:-170px;
+	overflow:hidden;
+	top:25%;
+	width:215px;
+	font:12px Arial;
+        z-index:10;
+}
+#bordure-menu {
+	float:left;
+	background:url('../images/bloc_recherche.jpg') top right no-repeat;
+	width:115px;
+        
+	margin:0px;
+	padding:25px;
+	padding-top:30px;
+	border:5px solid #333333;
+	border-left:none;
+        color:#FFFFFF;
+        text-transform:uppercase;
+        font:9px 'Lucida Grande','Lucida Sans Unicode',Arial,Verdana,sans-serif;
+        letter-spacing: 1px;
+        text-decoration:none;
+}
+
+#bordure-menu input {
+        width : 100px;
+}
+
+#bouton-menu {
+	float: right;
+	width:45px;
+	margin:0px;
+        cursor :pointer;
+	height:136px;
+	background:url('../images/fond-demo-menu.jpg') top right no-repeat;
+}
+
+
+
+
+
+/* Profil artiste */
+
+label {
+    float: left;
+    width:130px;
+    margin: auto;
+}
+
+/* Tableau d affichage des oeuvres */
+
+.tabOeuvres {
+    margin : 0 auto;
+    margin-top : 50px;
+}
+
+.margeDroite {
+    padding-right: 100px; 
+}
+
+/* Lecteur video : projekktor */
+
+/*
+Theme Name: MACCACO
+Theme URI: http://www.projekktor.com/downloads
+Description: this theme is a screenr clone
+Version: 0.9
+Author: Michel Maillard
+Author URI: http://www.porkhead.org
+*/
+
+.projekktor {
+    background-color:#000;
+    font-family: 'Lucida Grande', Trebuchet MS, Arial, Sans-Serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align:center;
+    text-transform:uppercase;
+    text-shadow: 0 1px 1px #0c0c0c;
+    padding:0;
+    margin:0;
+    display:block;
+    position: relative; 
+}
+
+.projekktor .inactive {
+    display: none;
+}
+
+.projekktor .active {
+    display: block;	
+}
+
+.ppdisplay {
+    position: relative !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;    
+}
+
+.ppstart {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    margin-left:-45px;
+    margin-bottom: -38px;
+    cursor: pointer;
+    height: 84px;
+    width: 84px;
+    display: block;
+
+    padding: 0px;
+    background: url("../images/start.png") no-repeat left top transparent;
+}
+.ppstart:hover {
+    background: url("../images/start.png") no-repeat left bottom transparent;
+}
+.ppstart:active{
+    background: url("../images/start.png") no-repeat left -169px transparent;
+}
+
+
+.ppcontrols {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 36px;
+    background: url("../images/player.png") repeat-x scroll 0 0 #0f0e0e;
+    border-style:solid;
+    border-color:#413e3e;
+    border-width:1px 0;
+    padding: 0;
+    margin:0;
+}
+
+.ppcontrols ul {
+    list-style-type: none;   
+}
+
+.ppcontrols ul.left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin:0;
+}
+
+.ppcontrols ul.right {
+    background: url("../images/player.png") repeat-x scroll 0 0 #0f0e0e;    
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin:0;    
+}
+
+.ppcontrols ul.bottom {
+    position: relative;
+    top: 31px;
+    left: 0;
+    padding: 0;
+    margin:0;
+}
+
+
+.ppcontrols ul.left li {
+    float: left;
+    position: relative;
+}
+
+.ppcontrols ul.right li {
+    float: right;
+    position: relative;    
+}
+
+.pptitle {
+    padding: 0 10px;
+    color: #fff;
+    overflow: hidden;
+    text-align: left;
+    line-height: 30px;
+    height:30px;
+    border-left:1px solid #413e3e;
+    font-size:11px;
+    cursor: pointer;
+}
+
+
+/* PLAY / PAUSE - left */
+.ppplay,
+.pppause  {
+    background: url("../images/maccaco.png") no-repeat left top transparent;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-right: 1px solid #000;
+}
+
+.ppplay:hover {
+    background: url("../images/maccaco.png") no-repeat left -35px transparent;
+}
+.ppplay:active {
+    background: url("../images/maccaco.png") no-repeat left -36px transparent;
+}
+
+.pppause {
+    background: url("../images/maccaco.png") no-repeat left -70px transparent;
+}
+
+.pppause:hover {
+    background: url("../images/maccaco.png") no-repeat left -105px transparent;
+}
+
+.pppause:active {
+    background: url("../images/maccaco.png") no-repeat left -106px transparent;
+}
+
+
+
+/* Enter / Exit Fullscreen - right */
+
+.ppfsenter,
+.ppfsexit  {    
+    width: 30px;
+    height: 30px;
+    background: url("../images/maccaco.png") no-repeat right top transparent;
+    cursor: pointer;
+    border-left: 1px solid #413e3e;
+}
+.ppfsenter:hover {
+    background: url("../images/maccaco.png") no-repeat right -35px transparent;
+}
+.ppfsenter:active {
+    background: url("../images/maccaco.png") no-repeat right -36px transparent;
+}
+.ppfsexit {
+    background: url("../images/maccaco.png") no-repeat right -70px transparent;
+}
+.ppfsexit:hover {
+    background: url("../images/maccaco.png") no-repeat right -105px transparent;
+}
+.ppfsexit:active {
+    background: url("../images/maccaco.png") no-repeat right -106x transparent;
+}
+
+
+
+/* Unmute / Max volume - right */
+.ppvmax {
+    width: 30px;
+    height: 30px;
+    border-right: 1px solid #000;    
+    border-left:none; 
+    background: url("../images/maccaco.png") no-repeat -842px top transparent;
+}
+
+.ppvmax:hover  {
+    background: url("../images/maccaco.png") no-repeat -842px -35px transparent;
+}
+.ppvmax:active  {
+    background: url("../images/maccaco.png") no-repeat -842px -36px transparent;
+}
+
+
+
+/* Mute / Min volume - right */
+.ppmute  {
+    width: 29px;
+    height: 30px;    
+    border-left:1px solid #413e3e;
+    background: url("../images/maccaco.png") no-repeat -750px top transparent;
+}
+.ppmute:hover  {
+    background: url("../images/maccaco.png") no-repeat -750px -35px transparent;
+}
+.ppmute:active  {
+    background: url("../images/maccaco.png") no-repeat -750px -36px transparent;
+}
+
+
+
+/* volume slider - right */
+.ppvslider {
+    margin: 13px 5px;
+    height: 16px;
+    width: 60px;
+    background: url("../images/maccaco.png") no-repeat -781px -13px transparent;
+}
+
+.ppvmarker {
+    position: relative;
+    right:0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: url("../images/maccaco.png") no-repeat -634px -13px transparent;
+}
+
+.ppvknob  {
+    cursor: pointer;
+    z-index: 201;
+    position: relative;
+    background: url("../images/maccaco.png") no-repeat -699px -5px transparent;
+    top:-13px;
+    left:0;
+    width: 6px;
+    height: 20px;
+}
+
+
+
+/* time / time left */
+.pptimeleft {    
+    color: #fff;
+    width: 130px;
+    line-height: 30px;
+    height: 30px;
+    border-left: 1px solid #413e3e;
+    border-right: 1px solid #000;
+    overflow: hidden;
+}
+
+/* special for single
+.pptimeleft {
+background: url("../images/maccaco.png") no-repeat -91px top transparent;
+}
+*/
+
+
+
+
+/* previous / next item */
+.ppnext,
+.ppprev {
+    display:block;
+    background: url("../images/maccaco.png") no-repeat -59px top transparent;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-left:1px solid #413e3e;
+    border-right:1px solid #000;
+}
+.ppnext { border-right:none;}
+.ppnext:hover {
+    background: url("../images/maccaco.png") no-repeat -59px -35px transparent;
+}
+.ppnext:active {
+    background: url("../images/maccaco.png") no-repeat -59px -36px transparent;
+}
+
+.ppprev {
+    background: url("../images/maccaco.png") no-repeat -32px top transparent;
+}
+
+.ppprev:hover {
+    background: url("../images/maccaco.png") no-repeat -32px -35px transparent;
+}
+.ppprev:active {
+    background: url("../images/maccaco.png") no-repeat -32px -36px transparent;
+}
+
+
+
+/* Scrubber, Playhead and fluff */
+.ppscrubber {
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: url("../images/maccaco-load.gif") repeat-x left top transparent;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #000;
+}
+
+
+.ppscrubberdrag {
+    cursor: pointer;
+    z-index: 302;
+    position: absolute;
+    background-color: transparent;    
+    top:0;
+    left:0;
+    height: 5px;
+    width: 100%; 
+}
+
+.ppplayhead, .pploaded {
+    position: relative;
+    display: block;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 1px;
+    background-color:#fff;
+    cursor: pointer;
+    z-index: 301;
+}
+
+.ppcuepoint {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    background-color: yellow;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 302;
+}
+
+.ppcuepoint:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+.pploaded {
+    position: relative;    
+    z-index: 10;
+    background: rgb(65, 62, 62) ;
+    opacity: 0.8;
+    /* ie7 */
+    filter: alpha(opacity = 80);
+    /* ie8 */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.ppplayhead {
+    margin-top: -5px;
+}
+
+
+.pptestcard {
+    background: url("../images/noise.gif") center center repeat;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+.pptestcard p {
+    background-color: #3b393e;
+    width: 60%;
+    margin: auto;
+    line-height: 25px;
+    position: relative;
+    top: 25%;
+    padding: 10px;
+    border:5px solid #000;
+    text-align: center;
+}
+
+.ppbuffering {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    margin-left:-45px;
+    margin-bottom: -38px;
+    display: block;
+    z-index:9010;
+    padding: 0px;
+    background: url("../images/buffering.gif") no-repeat center center #000;
+    height: 84px;
+    width: 84px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    display: none;
+}
